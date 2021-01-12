@@ -25,3 +25,7 @@
   border-color: #1261a6; /*set the color you want here*/
   color: #f4f9ff;
 }
+
+.tech-used {
+  font-weight: bold;
+}
