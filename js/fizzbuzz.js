@@ -10,13 +10,13 @@ function runTheNumbers(num1, num2) {
   for (let loop = 1; loop <= 100; loop++) {
 
     if (fizzBuzz(loop, num1, num2)) {
-      // fizzBuzz
+      // FizzBuzz
       output.push('FizzBuzz');
     } else if (buzz(loop, num2)) {
-      // buzz
+      // Buzz
       output.push('Buzz');
     } else if (fizz(loop, num1)) {
-      // fizz
+      // Fizz
       output.push('Fizz')
     } else {
       // loop
@@ -51,8 +51,6 @@ const template = () => {
   const rowHTML = templateTrow.innerHTML;
 
   output = runTheNumbers(num1.value, num2.value);
-
-  console.log(output);
   
 for (let loop = 0; loop < output.length; loop+=5) {
   resultsHTML += rowHTML.replace('{{num1}}', output[loop])
