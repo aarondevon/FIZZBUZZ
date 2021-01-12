@@ -86,10 +86,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-4 offset-6">
+          <div class="col-12">
             <p>I will show results</p>
             <hr />
-            <p id="results"></p>
+            <table id="outputTable" class="table"></table>
           </div>
         </div>
       </div>
@@ -113,6 +113,24 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- Templates -->
+    <script id="templateThead" type="text/template">
+      <thead>
+        <tr>
+          <th scope="col" colspan="5">Results For Fizz Buzz</th>
+        </tr>
+      </thead>
+    </script>
+
+    <script id="templateTrow" type="text/template">
+      <tr>
+        <td>{{num1}}</td>
+        <td>{{num2}}</td>
+        <td>{{num3}}</td>
+        <td>{{num4}}</td>
+        <td>{{num5}}</td>
+      </tr>
+    </script>
     <!-- FizzBuzz script -->
     <script src="js/fizzbuzz.js"></script>
   </body>

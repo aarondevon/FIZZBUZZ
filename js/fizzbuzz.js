@@ -1,27 +1,29 @@
 const num1 = document.querySelector('#num1');
 const num2 = document.querySelector('#num2');
-const results = document.querySelector('#results');
 
 document.querySelector('#fizzbuzzBtn').addEventListener('click', () => {
-  runTheNumbers(num1.value, num2.value);
+  template();
 })
 
 function runTheNumbers(num1, num2) {
-for (let loop = 1; loop <= 100; loop++) {
-  if (fizzBuzz(loop, num1, num2)) {
-    // fizzBuzz
-    results.append('fizzBuzz');
-  } else if (buzz(loop, num2)) {
-    // buzz
-    results.append('buzz');
-  } else if (fizz(loop, num1)) {
-    // fizz
-    results.append('fizz');
-  } else {
-    // loop
-    results.append(loop);
+  const output = [];
+  for (let loop = 1; loop <= 100; loop++) {
+
+    if (fizzBuzz(loop, num1, num2)) {
+      // fizzBuzz
+      output.push('FizzBuzz');
+    } else if (buzz(loop, num2)) {
+      // buzz
+      output.push('Buzz');
+    } else if (fizz(loop, num1)) {
+      // fizz
+      output.push('Fizz')
+    } else {
+      // loop
+      output.push(`${loop}`);
+    }
   }
-}
+  return output;
 }
 
 const buzz = (loop, numInput2) => {
@@ -35,4 +37,29 @@ const fizz = (loop, numInput1) => {
 const fizzBuzz = (loop, num1, num2) => {
   console.log(fizz(loop, num1) && buzz(loop, num2));
   return fizz(loop, num1) && buzz(loop, num2);
+}
+
+const template = () => {
+  let output = [];
+  const outputTable = document.querySelector('#outputTable');
+  console.log(outputTable);
+  const templateThead = document.querySelector('#templateThead')
+  const templateTrow = document.querySelector('#templateTrow');
+
+
+  let resultsHTML = templateThead.innerHTML;
+  const rowHTML = templateTrow.innerHTML;
+
+  output = runTheNumbers(num1.value, num2.value);
+
+  console.log(output);
+  
+for (let loop = 0; loop < output.length; loop+=5) {
+  resultsHTML += rowHTML.replace('{{num1}}', output[loop])
+                        .replace('{{num2}}', output[loop+1])
+                        .replace('{{num3}}', output[loop+2])
+                        .replace('{{num4}}', output[loop+3])
+                        .replace('{{num5}}', output[loop+4])     
+}
+outputTable.innerHTML = resultsHTML;
 }
